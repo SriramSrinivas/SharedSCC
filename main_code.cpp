@@ -161,7 +161,7 @@ sccSets.at(C_Info.at(i).head).insert(i);
 
 
 cout<<"original:" <<sccSets.size()<<"\n";
-sccSets.resize(max);
+sccSets.resize(max+1);
 
 cout<<"After Shrink:" <<sccSets.size()<<"\n";
 
