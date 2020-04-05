@@ -143,15 +143,40 @@ int main(int argc, char *argv[])
 
  // write the component to sets ( Sudarshan will be using the sets)
 
- vector<set <int, greater <int> >sccSets ;
+ vector<set <int> > sccSets;
+ sccSets.resize(nodes);
 
+ int max=0;
 for(int i=0;i<C_Info.size();i++)
 {
 
-cout <<C_Info->at(i)
+
+if(max < C_Info.at(i).head)
+{
+max=C_Info.at(i).head;
+}	
+sccSets.at(C_Info.at(i).head).insert(i);
 
 }	
 
+
+cout<<"original:" <<sccSets.size()<<"\n";
+sccSets.resize(max);
+
+cout<<"After Shrink:" <<sccSets.size()<<"\n";
+
+
+for(int i=0;i<sccSets.size();i++)
+{
+
+cout <<"Set "<< i<<" :";	
+for(set<int> :: iterator it = sccSets[i].begin(); it != sccSets[i].end();++it)
+{
+   cout<<" " <<*it;
+}
+cout <<"\n";
+
+}
 
 
   //  printf("After insert \n");
